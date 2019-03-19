@@ -1,7 +1,7 @@
-package main_test
+package mybiginteger_test
 
 import (
-	. "my-biginteger"
+	. "number/mybiginteger"
 	"reflect"
 	"testing"
 )
@@ -16,6 +16,9 @@ func TestConvertStringToBytes(t *testing.T) {
 		{[]byte{253, 1, 2, 3, 5}, "-1235"},
 		{[]byte{1, 2, 3, 254, 5}, "123.5"},
 		{[]byte{253, 1, 2, 3, 254, 5}, "-123.5"},
+		{[]byte(nil), "a1235"},
+		{[]byte(nil), "12$35"},
+		{[]byte(nil), "1235@"},
 	}
 
 	for _, testCase := range testData {

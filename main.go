@@ -1,17 +1,12 @@
 package main
 
-import "fmt"
-
-func ConvertStringToBytes(numberString string) []byte {
-	result := []byte{}
-	for _, digit := range []rune(numberString) {
-		result = append(result, (byte(digit) - '0'))
-	}
-	return result
-}
+import (
+	"fmt"
+	bigInteger "number/mybiginteger"
+)
 
 func main() {
 	number := "-12345.67890"
-	numberBytes := ConvertStringToBytes(number)
+	numberBytes := bigInteger.ConvertStringToBytes(number)
 	fmt.Println(numberBytes)
 }
