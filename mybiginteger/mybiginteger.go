@@ -34,6 +34,9 @@ func Add(number1 []byte, number2 []byte) []byte {
 		diffLength *= -1
 	}
 	number2 = append(make([]byte, diffLength), number2...)
+	number1Length = len(number1)
+	number2Length = len(number2)
+
 	accumulatorBytes := make([]byte, number1Length+1)
 	var accumulatorPerDigit byte
 	for index := number1Length; index > 0; index-- {
