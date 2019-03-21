@@ -19,9 +19,21 @@ func ConvertStringToBytes(numberString string) []byte {
 	return result
 }
 
-// Add - Accumulator = Number1 + Number2
 func Add(number1 []byte, number2 []byte) []byte {
 	number1Length := len(number1)
+	number2Length := len(number2)
+	if number1Length == 0 {
+		return nil
+	}
+	if number2Length == 0 {
+		return nil
+	}
+	diffLength := number1Length - number2Length
+	if diffLength < 0 {
+		number1, number2 = number2, number1
+		diffLength *= -1
+	}
+	number2 = append(make([]byte, diffLength), number2...)
 	accumulatorBytes := make([]byte, number1Length+1)
 	var accumulatorPerDigit byte
 	for index := number1Length; index > 0; index-- {

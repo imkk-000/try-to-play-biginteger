@@ -34,6 +34,11 @@ func TestAdd(t *testing.T) {
 	}
 	testData := []TestData{
 		{[]byte{3, 3}, []byte{2, 2}, []byte{1, 1}},
+		{[]byte{1, 1, 0}, []byte{1, 1}, []byte{9, 9}},
+		{[]byte{2, 0}, []byte{1, 1}, []byte{9}},
+		{[]byte{2, 0}, []byte{9}, []byte{1, 1}},
+		{[]byte(nil), []byte{}, []byte{1}},
+		{[]byte(nil), []byte{1}, []byte{}},
 	}
 	for _, testCase := range testData {
 		actualAddBytes := Add(testCase.inputDataNumber1, testCase.inputDataNumber2)
